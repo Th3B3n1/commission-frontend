@@ -28,8 +28,8 @@ function App() {
       <input type="text" name="description" id="desc" placeholder="Description" /><br />
       <input type="number" name="price" id="price" placeholder="Price" /><br />
       <input type="submit" onClick={() => {
-        let desc = document.getElementById("desc") as HTMLInputElement;
-        let price = document.getElementById("price") as HTMLInputElement;
+        let desc : HTMLInputElement = document.getElementById("desc") as HTMLInputElement;
+        let price : HTMLInputElement = document.getElementById("price") as HTMLInputElement;
         fetch("http://127.0.0.1:5555/commission", {
             headers: {
               'Accept': 'application/json',
@@ -40,6 +40,8 @@ function App() {
             description: desc.value, 
             price: price.value})
         });
+        desc.value = "";
+        price.value = "";
       }}/>
     </div>
   </div>
